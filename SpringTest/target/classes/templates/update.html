@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Person</title>
+    <style>
+        /* Center the page and form */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Style the form container */
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        /* Style form labels */
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #333;
+        }
+
+        /* Style form input fields */
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* Style the submit button */
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Style the body text */
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>Edit Person</h2>
+    <form th:action="@{/update/{index}(index=${index})}" th:object="${person}" method="post">
+        <label for="name">Name</label>
+        <input type="text" id="name" th:field="*{name}" /><br>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" th:field="*{age}" /><br>
+
+        <label for="roles">Role</label>
+        <input type="text" id="roles" th:field="*{roles}" /><br>
+
+        <input type="submit" value="Update Person" />
+    </form>
+</body>
+</html>

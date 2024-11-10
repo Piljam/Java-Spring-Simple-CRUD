@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login Success</title>
+	<style>
+		body {
+		    font-family: Arial, sans-serif;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    height: 100vh;
+		    margin: 0;
+		    background-color: #f4f4f4;
+		}
+
+		form {
+		    background-color: #fff;
+		    padding: 20px;
+		    border-radius: 8px;
+		    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		    width: 300px;
+		}
+
+		label {
+		    display: block;
+		    font-weight: bold;
+		    margin-bottom: 8px;
+		    color: #333;
+		}
+
+		input[type="text"],
+		input[type="number"] {
+		    width: 100%;
+		    padding: 8px;
+		    margin-bottom: 12px;
+		    border: 1px solid #ccc;
+		    border-radius: 4px;
+		    box-sizing: border-box;
+		}
+
+		input[type="submit"] {
+		    width: 100%;
+		    padding: 10px;
+		    background-color: #007bff;
+		    border: none;
+		    color: white;
+		    font-weight: bold;
+		    border-radius: 4px;
+		    cursor: pointer;
+		    transition: background-color 0.3s;
+		}
+
+		input[type="submit"]:hover {
+		    background-color: #0056b3;
+		}
+	</style>
+</head>
+<body>
+
+	<form th:action="@{/addperson}" th:object="${person}" method="post">
+	  <label for="name">Name</label>
+	  <input type="text" name="name" id="name" ><br>
+	  
+	  <label for="age">Age</label>
+	  <input type="number" name="age" id="age" ><br>
+	  
+	  <input type="submit">
+	</form>
+</body>
+</html>
